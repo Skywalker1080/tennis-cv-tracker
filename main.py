@@ -17,8 +17,11 @@ def main():
     ball_detections = ball_tracker.interpolate_ball(ball_detections)
 
     # Court Line Detector
-    court_line_detector = CourtLineDetector(model_path='models/model_tennis_court_det.pt')
+    court_line_detector = CourtLineDetector(model_path='models/keypoints_model.pth')
     court_keypoints = court_line_detector.predict(video_frames[0])
+
+    # Choose Player
+    player_detections = player_tracker.choose_and_filter_player(court_keypoints, player_detections)
     
     
     overlay_output = player_tracker.draw_bboxes(video_frames, player_detections)
