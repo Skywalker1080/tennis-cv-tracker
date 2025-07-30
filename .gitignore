@@ -13,3 +13,5 @@ data/
 yolo11x.pt
 yolov8x.pt
 yolov8n.pt
+
+training/tennis-ball-detection-6/
