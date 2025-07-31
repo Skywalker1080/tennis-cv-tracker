@@ -18,7 +18,7 @@ def main():
     ball_detections = ball_tracker.interpolate_ball(ball_detections)
 
     # Court Line Detector
-    court_line_detector = CourtLineDetector(model_path='models/keypoint_model.pth')
+    court_line_detector = CourtLineDetector(model_path='models/keypoint_20epoch.pth')
     court_keypoints = court_line_detector.predict(video_frames[0])
 
     # Choose Player
@@ -42,7 +42,7 @@ def main():
         cv2.putText(frame, f"Frame {i}", (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
 
 
-    save_video(overlay_output, "output_video/video.avi")
+    save_video(overlay_output, "output_video/video2.avi")
 
 if __name__ == "__main__":
     main()
