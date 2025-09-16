@@ -187,7 +187,7 @@ class MiniCourt():
     def convert_bounding_boxes_to_mini_court_coordinates(self,player_boxes, ball_boxes, original_court_key_points ):
         player_heights = {
             1: constants.PLAYER_1_HEIGHT_METERS,
-            2: constants.PLAYER_2_HEIGHT_METERS
+            2: constants.PLAYER_2_HEIGHT_METERS,
         }
 
         output_player_boxes= []
@@ -200,6 +200,10 @@ class MiniCourt():
 
             output_player_bboxes_dict = {}
             for player_id, bbox in player_bbox.items():
+
+                '''if player_id not in player_heights:
+                    continue'''
+
                 foot_position = get_foot_position(bbox)
 
                 # Get The closest keypoint in pixels

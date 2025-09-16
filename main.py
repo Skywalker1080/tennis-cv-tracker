@@ -19,11 +19,11 @@ def main():
 
     # Detect Player
     player_tracker = PlayerTracker(model_path="yolov8x")
-    player_detections = player_tracker.detect_frames(video_frames, read_from_stub=True, stub_path="tracker_stubs/player_detections.pkl")
+    player_detections = player_tracker.detect_frames(video_frames, read_from_stub=False, stub_path="tracker_stubs/player_detections.pkl")
 
     # Detect Ball
     ball_tracker = BallTracker(model_path='models/last.pt')
-    ball_detections = ball_tracker.detect_frames(video_frames, read_from_stub=True, stub_path="tracker_stubs/ball_detections.pkl")
+    ball_detections = ball_tracker.detect_frames(video_frames, read_from_stub=False, stub_path="tracker_stubs/ball_detections.pkl")
     ball_detections = ball_tracker.interpolate_ball(ball_detections)
 
     # Court Line Detector
